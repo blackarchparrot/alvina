@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Universal Profile</title>
+     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: #f0f4f9;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+         
+        .profile-card {
+            max-width: 920px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 48px;
+            padding: 2.8rem 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            transition: 0.2s;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+         
+        .profile-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .photo-frame {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: #d9e2ec;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.04);
+            border: 3px solid white;
+            background: #cbd5e1;
+        }
+
+        .photo-frame i {
+            font-size: 4.8rem;
+            color: #2c3e50;
+            opacity: 0.7;
+        }
+
+        .name-title h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: #0a1e2f;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .name-title .role-badge {
+            display: inline-block;
+            background: #eef3f9;
+            padding: 0.3rem 1.6rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #1f3a57;
+            margin: 0.2rem 0 0.6rem 0;
+            border: 1px solid rgba(255,255,255,0.5);
+            letter-spacing: 0.2px;
+        }
+
+        .role-badge i {
+            margin-right: 6px;
+            color: #2b4b6e;
+        }
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1.8rem;
+            margin-top: 0.4rem;
+        }
+
+        .contact-row a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #1f3a57;
+            font-size: 0.98rem;
+            padding: 0.2rem 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.15s;
+            background: transparent;
+        }
+
+        .contact-row a i {
+            font-size: 1.1rem;
+            width: 1.4rem;
+            color: #2b4b6e;
+        }
+
+        .contact-row a:hover {
+            border-bottom-color: #2b4b6e;
+            color: #0a1e2f;
+        }
+
+         
+        .about-section {
+            background: #f7faff;
+            padding: 1.6rem 2rem;
+            border-radius: 32px;
+            margin: 1.2rem 0 2.2rem 0;
+            border: 1px solid #e5edf6;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #1f3349;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .about-section p i {
+            font-size: 1.5rem;
+            color: #2b4b6e;
+            opacity: 0.6;
+            margin-top: 0.1rem;
+        }
+
+         
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 2rem;
+            margin-top: 0.2rem;
+        }
+
+        @media (max-width: 650px) {
+            .profile-card { padding: 1.8rem 1.2rem; }
+            .profile-header { flex-direction: column; align-items: center; text-align: center; }
+            .contact-row { justify-content: center; }
+            .info-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+            .about-section p { flex-direction: column; align-items: center; text-align: center; }
+            .name-title h1 { font-size: 2.2rem; }
+        }
+
+         
+        .info-box {
+            background: #fafcff;
+            border-radius: 28px;
+            padding: 1.6rem 1.8rem;
+            border: 1px solid #eaf1fa;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.01);
+        }
+
+        .info-box h3 {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #3b5677;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #e6eefa;
+            padding-bottom: 0.6rem;
+        }
+
+        .info-box h3 i {
+            color: #2b4b6e;
+            font-size: 1.1rem;
+            width: 1.8rem;
+        }
+
+        .info-line {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #1a314a;
+            flex-wrap: wrap;
+        }
+
+        .info-line .label {
+            font-weight: 500;
+            color: #4b6586;
+            min-width: 80px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2px;
+            opacity: 0.8;
+        }
+
+        .info-line .value {
+            font-weight: 450;
+        }
+
+         
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 0.7rem;
+            margin-top: 0.3rem;
+        }
+
+        .skill-tags span {
+            background: #eef4fc;
+            padding: 0.4rem 1.3rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 450;
+            color: #1d3652;
+            border: 1px solid rgba(255,255,255,0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .skill-tags span i {
+            font-size: 0.7rem;
+            color: #2b4b6e;
+            opacity: 0.5;
+        }
+
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.35rem 0 0.5rem 0;
+            border-bottom: 1px solid #eaf1fa;
+        }
+
+        .lang-item:last-child {
+            border-bottom: none;
+        }
+
+        .lang-name {
+            font-weight: 450;
+        }
+
+        .lang-level {
+            color: #3f5a7a;
+            font-size: 0.9rem;
+            background: #f0f6fe;
+            padding: 0 0.9rem;
+            border-radius: 30px;
+        }
+
+        .mini-badge {
+            background: #eef4fc;
+            border-radius: 30px;
+            padding: 0.2rem 1rem 0.2rem 0.7rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            color: #1d3652;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        hr {
+            border: none;
+            border-top: 1.5px solid #e6eefa;
+            margin: 1.1rem 0;
+        }
+
+        .footer-note {
+            margin-top: 2.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            font-size: 0.85rem;
+            color: #4b6586;
+            border-top: 1px solid #e6eefa;
+            padding-top: 1.4rem;
+        }
+
+        .footer-note i {
+            margin-right: 4px;
+        }
+
+        .footer-note a {
+            color: #2b4b6e;
+            text-decoration: none;
+            border-bottom: 1px dotted transparent;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #2b4b6e;
+        }
+
+        .edit-hint {
+            background: #f0f6fe;
+            padding: 0.1rem 1.2rem 0.1rem 0.9rem;
+            border-radius: 60px;
+            font-size: 0.75rem;
+            color: #1d3652;
+            border: 1px solid #dce6f2;
+        }
+
+         
+        .fa-regular, .fas, .far {
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+<div class="profile-card">
+
+     
+    <div class="profile-header">
+        <div class="photo-frame">
+            <i class="fas fa-user-circle"></i>
+        </div>
+        <div class="name-title">
+            <h1>Maria Chen</h1>
+            <div class="role-badge">
+                <i class="fas fa-star"></i> Community &amp; Wellness
+            </div>
+            <div class="contact-row">
+                <a href="#"><i class="fas fa-envelope"></i> maria.c@connect.me</a>
+                <a href="#"><i class="fas fa-phone-alt"></i> +1 (505) 234‑9876</a>
+                <a href="#"><i class="fas fa-comment"></i> Signal / WhatsApp</a>
+                <a href="#"><i class="fas fa-globe"></i> maria-connects.org</a>
+            </div>
+        </div>
+    </div>
+
+     
+    <div class="about-section">
+        <p>
+            <i class="fas fa-quote-right"></i>
+            <span>I believe in bringing people together. For over 10 years I’ve worked with 
+            families, schools, and local groups to create welcoming spaces. I love listening, 
+            learning, and helping others find their voice. </span>
+        </p>
+    </div>
+
+     
+    <div class="info-grid">
+
+         
+        <div class="info-box">
+            <h3><i class="fas fa-address-card"></i> About me</h3>
+
+            <div class="info-line">
+                <span class="label">📍 Location</span>
+                <span class="value"><i class="fas fa-map-pin" style="margin-right:6px; opacity:0.6;"></i> Santa Fe, NM</span>
+            </div>
+            <div class="info-line">
+                <span class="label">💼 Work</span>
+                <span class="value">Community program director · 12+ years</span>
+            </div>
+            <div class="info-line">
+                <span class="label">🎓 Education</span>
+                <span class="value">BS Social Work · University of New Mexico</span>
+            </div>
+            <div class="info-line">
+                <span class="label">🌟 Focus</span>
+                <span class="value" style="display: flex; flex-wrap: wrap; gap: 0.3rem;">
+                    <span class="mini-badge"><i class="fas fa-heart" style="color:#b3414b;"></i>  family support</span>
+                    <span class="mini-badge"><i class="fas fa-hand-holding-heart"></i>  mental health</span>
+                </span>
+            </div>
+            <hr>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="mini-badge"><i class="fas fa-award"></i> 2024 community award</span>
+                <span class="mini-badge"><i class="fas fa-users"></i>  mentor</span>
+                <span class="mini-badge"><i class="fas fa-clock"></i>  flexible</span>
+            </div>
+        </div>
+
+         
+        <div class="info-box">
+            <h3><i class="fas fa-hands-helping"></i> Skills &amp; interests</h3>
+            <div class="skill-tags">
+                <span><i class="fas fa-people-arrows"></i>  mediation</span>
+                <span><i class="fas fa-chalkboard-teacher"></i>  facilitation</span>
+                <span><i class="fas fa-hand-holding-heart"></i>  counseling</span>
+                <span><i class="fas fa-users"></i>  group leadership</span>
+                <span><i class="fas fa-pen-fancy"></i>  grant writing</span>
+                <span><i class="fas fa-calendar-check"></i>  event planning</span>
+                <span><i class="fas fa-book-open"></i>  storytelling</span>
+                <span><i class="fas fa-leaf"></i>  mindfulness</span>
+            </div>
+
+            <hr style="margin: 1.4rem 0 0.8rem 0;">
+
+            <h3 style="margin-bottom: 0.9rem; margin-top: 0.2rem;"><i class="fas fa-globe-americas"></i> Languages</h3>
+            <div class="lang-item">
+                <span class="lang-name"><i class="fas fa-check-circle" style="color:#2b4b6e; opacity:0.5; margin-right: 6px;"></i>English</span>
+                <span class="lang-level">native</span>
+            </div>
+            <div class="lang-item">
+                <span class="lang-name"><i class="fas fa-circle" style="color:#2b4b6e; opacity:0.25; margin-right: 6px; font-size: 0.5rem;"></i>Spanish</span>
+                <span class="lang-level">fluent</span>
+            </div>
+            <div class="lang-item">
+                <span class="lang-name"><i class="fas fa-circle" style="color:#2b4b6e; opacity:0.15; margin-right: 6px; font-size: 0.5rem;"></i>Mandarin</span>
+                <span class="lang-level">basic</span>
+            </div>
+            <div style="margin-top: 0.9rem;">
+                <span class="mini-badge"><i class="fas fa-certificate"></i>  C1 English</span>
+                <span class="mini-badge"><i class="fas fa-certificate"></i>  B2 Spanish</span>
+            </div>
+        </div>
+    </div>
+
+     
+    <div class="footer-note">
+        <span><i class="fas fa-id-card"></i>  universal profile · always open</span>
+        <span class="edit-hint"><i class="fas fa-pencil-alt"></i>  update anytime</span>
+        <span><i class="far fa-clock"></i>  last refresh: today</span>
+        <a href="#"><i class="fas fa-print"></i>  print / share</a>
+    </div>
+
+     
+    <div style="margin-top: 0.8rem; font-size: 0.7rem; color: #7e92ad; text-align: center; opacity: 0.5; border-top: 1px solid #eef3f9; padding-top: 0.8rem;">
+        <i class="fas fa-circle" style="font-size: 0.3rem; vertical-align: middle;"></i>  this is your space — built for people, not machines
+    </div>
+</div>
+</body>
+</html>
