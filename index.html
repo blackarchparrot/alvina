@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Universal Profile</title>
-     
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -23,7 +23,6 @@
             padding: 2rem 1rem;
         }
 
-         
         .profile-card {
             max-width: 920px;
             width: 100%;
@@ -35,7 +34,6 @@
             border: 1px solid rgba(255,255,255,0.3);
         }
 
-         
         .profile-header {
             display: flex;
             flex-wrap: wrap;
@@ -44,19 +42,27 @@
             margin-bottom: 2rem;
         }
 
-        .photo-frame {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            background: #d9e2ec;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.04);
-            border: 3px solid white;
-            background: #cbd5e1;
-        }
+.photo-frame {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    /* Outer ring color and width */
+    border: 3px solid #2b4b6e; 
+    /* Space between the ring and the image */
+    padding: 6px; 
+    /* Gap background color (set to white or card background) */
+    background: #ffffff; 
+    flex-shrink: 0;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.04);
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
 
         .photo-frame i {
             font-size: 4.8rem;
@@ -121,7 +127,6 @@
             color: #0a1e2f;
         }
 
-         
         .about-section {
             background: #f7faff;
             padding: 1.6rem 2rem;
@@ -146,7 +151,6 @@
             margin-top: 0.1rem;
         }
 
-         
         .info-grid {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
@@ -163,7 +167,6 @@
             .name-title h1 { font-size: 2.2rem; }
         }
 
-         
         .info-box {
             background: #fafcff;
             border-radius: 28px;
@@ -216,7 +219,6 @@
             font-weight: 450;
         }
 
-         
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
@@ -320,7 +322,6 @@
             border: 1px solid #dce6f2;
         }
 
-         
         .fa-regular, .fas, .far {
             pointer-events: none;
         }
@@ -329,10 +330,9 @@
 <body>
 <div class="profile-card">
 
-     
     <div class="profile-header">
         <div class="photo-frame">
-            <i class="fas fa-user-circle"></i>
+            <img src="unnamed.jpg" alt="Profile Picture">
         </div>
         <div class="name-title">
             <h1>Maria Chen</h1>
@@ -340,15 +340,14 @@
                 <i class="fas fa-star"></i> Community &amp; Wellness
             </div>
             <div class="contact-row">
-                <a href="#"><i class="fas fa-envelope"></i> maria.c@connect.me</a>
-                <a href="#"><i class="fas fa-phone-alt"></i> +1 (505) 234‑9876</a>
-                <a href="#"><i class="fas fa-comment"></i> Signal / WhatsApp</a>
+                <a href="mailto:alvina.t.shahid@gmail.com"><i class="fas fa-envelope"></i> alvina.t.shahid@gmail.com</a>
+                <a href="tel:+8801521582077"><i class="fas fa-phone-alt"></i> +880 1521-582077</a>
+                <a href="https://wa.me/8801521582077" target="_blank" rel="noopener noreferrer"><i class="fas fa-comment"></i> WhatsApp</a>
                 <a href="#"><i class="fas fa-globe"></i> maria-connects.org</a>
             </div>
         </div>
     </div>
 
-     
     <div class="about-section">
         <p>
             <i class="fas fa-quote-right"></i>
@@ -358,10 +357,8 @@
         </p>
     </div>
 
-     
     <div class="info-grid">
 
-         
         <div class="info-box">
             <h3><i class="fas fa-address-card"></i> About me</h3>
 
@@ -392,7 +389,6 @@
             </div>
         </div>
 
-         
         <div class="info-box">
             <h3><i class="fas fa-hands-helping"></i> Skills &amp; interests</h3>
             <div class="skill-tags">
@@ -428,7 +424,6 @@
         </div>
     </div>
 
-     
     <div class="footer-note">
         <span><i class="fas fa-id-card"></i>  universal profile · always open</span>
         <span class="edit-hint"><i class="fas fa-pencil-alt"></i>  update anytime</span>
@@ -436,7 +431,6 @@
         <a href="#"><i class="fas fa-print"></i>  print / share</a>
     </div>
 
-     
     <div style="margin-top: 0.8rem; font-size: 0.7rem; color: #7e92ad; text-align: center; opacity: 0.5; border-top: 1px solid #eef3f9; padding-top: 0.8rem;">
         <i class="fas fa-circle" style="font-size: 0.3rem; vertical-align: middle;"></i>  this is your space — built for people, not machines
     </div>
